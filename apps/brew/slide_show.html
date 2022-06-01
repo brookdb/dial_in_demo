@@ -1,0 +1,24 @@
+<div class="slideshow-wrapper">
+  <br>
+  <h1 class="slideshow-title">Featured Roast</h1>
+  <div class="slideshow-container">
+    {% for roast in roasts %}
+      {% if roast.is_featured %}
+        <div class="mySlides fade">
+          <div class="slideshow-image-wrapper">
+            <img class="slideshow-image" src="{{ roast.thumb.url }}" alt="{{ roast.name }}">
+          </div>
+          <div class="slideshow-text pixel-border">
+            <h3><a href="{% url 'apps.roast:detail' slug=roast.slug%}">{{roast.name}}</a></h3>
+            <p>{{roast.region}}</p>
+            <p>{{roast.process}}</p>
+            <p>{{roast.producer}}</p>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor%}
+  </div>
+  <br>
+
+
+</div>

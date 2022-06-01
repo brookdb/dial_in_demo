@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block head %}
+  {% load ratings %}
+{% endblock %}
+
+{% block content %}
+<div class="roast-detail">
+  <div class="roast">
+    <div class="roast-image-container pixel-border">
+      <img class="roast-image" src="{{ roast.thumb.url }}" alt="{{ roast.name }}" />
+    </div>
+    <div class="roast-info">
+      <h2 class="roast-info-title">{{ roast.name}}</h2>
+      {% ratings roast %}
+      <br>
+      <p>Process: {{ roast.process}}</p>
+      <p>Producer: {{ roast.producer}}</p>
+      <p>Flavour Notes:</p>
+      <ul class="roast-notes">
+        {% for note in roast.notes_as_list %}
+          <li class="roast-note">{{note}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

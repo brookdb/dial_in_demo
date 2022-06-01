@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="content">
+  <div class="brew-list-control">
+    <div class="search-bar-container ">
+      <form class="search-bar-form" action="">
+        <input
+          class="search-bar-textfield"
+          type="text"
+          name="search"
+          placeholder="Search Roasts"
+          value="{{request.GET.title}}"
+        />
+      </form>
+    </div>
+    <button type="button" name="button" class="customForm-button brew-list-control-button" onclick="location.href='{% url 'apps.brew:add' %}'">NEW BREW</button>
+  </div>
+  <br>
+  <br>
+  <div class="brew-list">
+    {% for brew in brews %}
+      <div class="brew-tile">
+        <h2 class="brew-tile-title"> <a href="{% url 'apps.brew:brew_details' slug=brew.slug %}"> {{ brew.roastID.name }} on {{brew.brew_method}} </a></h2>
+        <div class="brew-tile-info">
+          <p>Roast Date: {{ brew.roastDate}}</p>
+          <p>Brew Date: {{ brew.brewDate}}</p>
+          <p>Brewed by: {{ brew.userID.first_name }}</p>
+        </div>
+      </div>
+    {% empty %}
+      <p>No results found. Try again.</p>
+    {% endfor %}
+
+  </div>
+
+  <br>
+  <br>
+</div>
+{% endblock %}

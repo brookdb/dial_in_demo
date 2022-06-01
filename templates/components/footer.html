@@ -1,0 +1,37 @@
+<br>
+<br>
+<br>
+<br>
+<div class="footer-wrapper">
+  <div class="footer-navigation">
+    <a href="{% url 'apps.roast:roast_landing' %}"><h2>ROAST</h2></a>
+    <a href="{% url 'apps.brew:brew_landing' %}"><h2>BREW</h2></a>
+    {% if user.is_authenticated  %}
+      <a href="{% url 'apps.users:dashboard' user_id=user.id %}"><h2>DASHBOARD</h2></a>
+    {% endif %}
+    <br>
+    <a href="#"><h4>Terms and Conditions / Privacy Policy</h4></a>
+  </div>
+
+  <div class="footer-wrapper-inner">
+    {% if request.path == "/" %}
+    <div class="footer-bio">
+      <div class="footer-bio-image-container">
+        <img class="footer-bio-image" src="../../media/main/images/bio-image.jpg" alt="Brook Daba bio image">
+      </div>
+      <div class="footer-bio-text">
+        We are in the beta stage of our little project and minor issues - technical or otherwise - are bound to happen. If you ran into any issues or have a recommandations (for example roast info that should be included in the database), please feel free to contact the admin via email (or write a ticket in the public github repositor for a faster fix)
+      </div>
+
+    </div>
+    {% endif %}
+
+    <div class="footer-social">
+      <a href="mailto:brksolomon@gmail.com">Email</a>
+      <a href="">GitHub</a>
+      <a href="#">patrion</a>
+    </div>
+  </div>
+
+
+</div>

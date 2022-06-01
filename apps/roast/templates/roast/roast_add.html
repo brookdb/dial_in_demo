@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <form class="roast-add-form pixel-border" action="{% url 'apps.roast:add' %}" method="post" enctype="multipart/form-data">
+    <p class="roast-add-form-header">Add A New Roast to the Data base</p>
+    {% csrf_token %}
+    {{form.as_table}}
+    <br>
+    <br>
+    <input class="customForm-button" type="submit" value="add">
+  </form>
+
+
+{% endblock %}

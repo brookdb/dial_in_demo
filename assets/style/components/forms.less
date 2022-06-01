@@ -1,0 +1,82 @@
+.customForm {
+  &-title{
+    font-family: 'DispoDroid';
+  }
+  &-wrapper{
+    color: @lavender;
+    max-width: 222px;
+    margin: 0 auto;
+    padding: 26.66px;
+    &-edit{
+      max-width: 70vw;
+      width: 70vw;
+      color: @lavender;
+      margin: 0 auto;
+      padding: 26.66px;
+    }
+  }
+  &-form
+  {
+    color: @lavender;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto Mono', monospace;
+    label{
+      font-family: 'Roboto Mono', monospace;
+    }
+    ul{
+      padding: none;
+    }
+    li{
+      font-size: 11px;
+      line-height: 0.999em;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+  }
+  &-button{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2em;
+    max-width: 200px;
+    color: @lavender;
+    background: @cerulean;
+    cursor: pointer;
+    &:hover, &:active{
+      text-decoration: underline;
+    }
+  }
+  &-link {
+    color: @lavender !important;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+}
+
+.roast-add{
+  &-form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    background: gray;
+    color: white;
+    padding: 15px;
+    margin-bottom: 25px;
+    label{
+      margin-top: 5px;
+
+    }
+    input{
+      margin-bottom: 5px;
+    }
+  }
+}
+.deactivate-account{
+  &-form{
+    p,label {
+      color: @uber-black;
+    }
+  }
+}

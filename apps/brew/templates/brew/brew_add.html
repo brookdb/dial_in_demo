@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+
+    <link href=
+"http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+
+
+{% endblock%}
+
+{% block content %}
+<div class="content">
+
+  <div class="brew-add">
+
+
+    <form class="roast-add-form pixel-border" action="{% url 'apps.brew:add' %}" method="post" enctype="multipart/form-data">
+      <p class="brew-short-header"> New Day, New Brew! </p>
+
+      {% csrf_token %}
+      <p>
+          <label for="roast-object">Roast:</label>
+          <input type="text" name="roast-object" id="roast-object" value="">
+      </p>
+      {{form.as_p}}
+      <input type="submit" value="Add Brew" class="customForm-button">
+    </form>
+  </div>
+  <script type="text/javascript">
+    $( function() {
+      console.log("autocomplete.js loaded");
+      console.log( '{{ roasts }}' );
+      let roasts = JSON.parse('{{ roasts }}').map(function(roast){
+        return {
+          "value": roast.pk,
+          "label": roast.fields.name
+        }
+      });
+      console.log(roasts);
+      $( "#roast-object" ).autocomplete({
+        source: roasts,
+        focus: function(event, ui) {
+            $('#roast-object').val(ui.item.label);
+            return false;
+        },
+        select: function (event, ui){
+          $('#roast-object').val(ui.item.label);
+          $('#roast-object-id').val(ui.item.value);
+          console.log($('#roast-object-id').val());
+          return false;
+        }
+      });
+    } );
+  </script>
+
+</div>
+{% endblock %}

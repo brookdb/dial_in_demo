@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="search-control">
+    <div class="search-bar-container ">
+      <form class="search-bar-form" action="">
+        <input
+          class="search-bar-textfield"
+          type="text"
+          name="search"
+          placeholder="Search Roasts"
+          v"alue="{{request.GET.title}}"
+        />
+      </form>
+    </div>
+    <button type="button" name="button" class="customForm-button brew-list-control-button" onclick="location.href='{% url 'apps.roast:add' %}'">NEW BREW</button>
+
+  </div>
+  <br>
+  <div class="roasts">
+    {% for roast in roasts%}
+      <div class="roast">
+        <h2> <a href="{% url 'apps.roast:detail' slug=roast.slug%}">{{ roast.name }}</a> </h2>
+
+        <p>Process: {{ roast.process}}</p>
+        <p>Region: {{ roast.region}}</p>
+        <p>Producer: {{ roast.producer }}</p>
+
+      </div>
+    {% empty %}
+      <h2 class="search-errors">No results found. Try again.</h2>
+    {% endfor %}
+
+  </div>
+
+  <br>
+  <br>
+
+  {% endblock %}
