@@ -22,8 +22,6 @@ default_recipie = {
     'output': 360,
     'grind': 12.0,
     'TSD_score': 5,
-
-
 }
 class Recipie(models.Model):
     dose = models.DecimalField(max_digits=4, decimal_places=2) #coffee ground amount in grams
@@ -45,7 +43,7 @@ class Recipie(models.Model):
 class Brew(models.Model):
     userID = models.ForeignKey(CustomUser, related_name='user', on_delete=models.CASCADE,blank=False)#user who is making this brew
     roastID = models.ForeignKey(Roast, related_name='roast', on_delete=models.CASCADE,blank=False)#roast being used for this brew
-    bestRecipieID = models.ForeignKey(Recipie, related_name='recipie', on_delete=models.SET_NULL, null=True)
+    bestRecipieID = models.ForeignKey(Recipie, related_name='recipie', on_delete=models.CASCADE, null=True, blank=True)
     roastDate = models.DateField()#day the beans were roasted
     brewDate = models.DateField(default=timezone.now)#The day this brew was added to app
     brew_method = models.CharField(max_length=256, choices=LABEL_CHOICES)#Label Choices
