@@ -21,7 +21,7 @@ SECRET_KEY = env('SECRETE_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['www.dial-in.coffee']
 
 
 # Application definition
@@ -77,7 +77,9 @@ WSGI_APPLICATION = 'dial_in.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dial_in_DB',
+        'NAME': env('DB_NAME'),
+	'USER': env('DB_USER_NAME'),
+	'PASSWORD': env('DB_USER_PW'),
         'HOST' : 'localhost',
         'PORT' : '5432',
     }
@@ -119,7 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
 )

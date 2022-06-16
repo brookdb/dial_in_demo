@@ -1,0 +1,68 @@
+@pixel-bg: @tangerine-sunset;
+@pixel-border: @uber-black;
+@pixel-border-2: @seashell;
+@pixel-border-3: @uber-black;
+@pixel: .123rem;
+
+.pixel-border {
+	background: @pixel-bg;
+	box-shadow: 
+
+	/* Inner Background Color */
+		0 calc(@pixel * -3) 0 calc(@pixel * -1) @pixel-bg,
+		0 calc(@pixel * 3) 0 calc(@pixel * -1) @pixel-bg,
+		0 calc(@pixel * -6) 0 calc(@pixel * -2) @pixel-bg,
+		0 calc(@pixel * 6) 0 calc(@pixel * -2) @pixel-bg,
+		0 calc(@pixel * -9) 0 calc(@pixel * -4) @pixel-bg,
+		0 calc(@pixel * 9) 0 calc(@pixel * -4) @pixel-bg,
+		0 calc(@pixel * -12) 0 calc(@pixel * -6) @pixel-bg,
+		0 calc(@pixel * 12) 0 calc(@pixel * -6) @pixel-bg,
+
+
+	/* Pixel Border Layer 1 */
+		calc(@pixel * -1) 0 0 0 @pixel-border,
+		@pixel 0 0 0 @pixel-border,
+		0 calc(@pixel * -2) 0 0 @pixel-border,
+		0 calc(@pixel * 2) 0 0 @pixel-border,
+		0 calc(@pixel * -5) 0 calc(@pixel * -1) @pixel-border,
+		0 calc(@pixel * 5) 0 calc(@pixel * -1) @pixel-border,
+		0 calc(@pixel * -7) 0 calc(@pixel * -2) @pixel-border,
+		0 calc(@pixel * 7) 0 calc(@pixel * -2) @pixel-border,
+		0 calc(@pixel * -10) 0 calc(@pixel * -4) @pixel-border,
+		0 calc(@pixel * 10) 0 calc(@pixel * -4) @pixel-border,
+		0 calc(@pixel * -13) 0 calc(@pixel * -6) @pixel-border,
+		0 calc(@pixel * 13) 0 calc(@pixel * -6) @pixel-border,
+
+	/* Pixel Border Layer 2 */
+		calc(@pixel * -2) 0 0 0 @pixel-border-2,
+		calc(@pixel * 2) 0 0 0 @pixel-border-2,
+		0 calc(@pixel * -1) 0 @pixel @pixel-border-2,
+		0 @pixel 0 @pixel @pixel-border-2,
+		0 calc(@pixel * -4) 0 0 @pixel-border-2,
+		0 calc(@pixel * 4) 0 0 @pixel-border-2,
+		0 calc(@pixel * -6) 0 calc(@pixel * -1) @pixel-border-2,
+		0 calc(@pixel * 6) 0 calc(@pixel * -1) @pixel-border-2,
+		0 calc(@pixel * -8) 0 calc(@pixel * -2) @pixel-border-2,
+		0 calc(@pixel * 8) 0 calc(@pixel * -2) @pixel-border-2,
+		0 calc(@pixel * -11) 0 calc(@pixel * -4) @pixel-border-2,
+		0 calc(@pixel * 11) 0 calc(@pixel * -4) @pixel-border-2,
+		0 calc(@pixel * -14) 0 calc(@pixel * -6) @pixel-border-2,
+		0 calc(@pixel * 14) 0 calc(@pixel * -6) @pixel-border-2,
+
+	/* Border Layer 3: @pixel-border-3 */
+		calc(@pixel * -3) 0 0 0 @pixel-border-3,
+		calc(@pixel * 3) 0 0 0 @pixel-border-3,
+		0 0 0 calc(@pixel * 2) @pixel-border-3,
+		0 calc(@pixel * -3) 0 @pixel @pixel-border-3,
+		0 calc(@pixel * 3) 0 @pixel @pixel-border-3,
+		0 calc(@pixel * -5) 0 0 @pixel-border-3,
+		0 calc(@pixel * 5) 0 0 @pixel-border-3,
+		0 calc(@pixel * -7) 0 calc(@pixel * -1) @pixel-border-3,
+		0 calc(@pixel * 7) 0 calc(@pixel * -1) @pixel-border-3,
+		0 calc(@pixel * -9) 0 calc(@pixel * -2) @pixel-border-3,
+		0 calc(@pixel * 9) 0 calc(@pixel * -2) @pixel-border-3,
+		0 calc(@pixel * -12) 0 calc(@pixel * -4) @pixel-border-3,
+		0 calc(@pixel * 12) 0 calc(@pixel * -4) @pixel-border-3,
+		0 calc(@pixel * -15) 0 calc(@pixel * -6) @pixel-border-3,
+		0 calc(@pixel * 15) 0 calc(@pixel * -6) @pixel-border-3;
+}
