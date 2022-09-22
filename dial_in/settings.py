@@ -21,7 +21,7 @@ SECRET_KEY = env('SECRETE_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.dial-in.coffee']
+ALLOWED_HOSTS = []
 
 
 # Application definition

@@ -7,11 +7,11 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('brew', '0008_remove_recipie_is_best_brew_bestrecipieid'),
+        ('brew', '0007_brew_slug'),
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.AddField(
             model_name='brew',
             name='bestRecipieID',
             field=models.ForeignKey(blank=True, default=0, on_delete=django.db.models.deletion.CASCADE, related_name='brew', to='brew.recipie'),

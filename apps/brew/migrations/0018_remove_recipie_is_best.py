@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('brew', '0017_recipie_is_best'),
+        ('brew', '0016_alter_recipie_dose_alter_recipie_grind_and_more'),
     ]
 
     operations = [
