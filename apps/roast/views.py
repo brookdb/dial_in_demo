@@ -17,9 +17,12 @@ def roast_landing(request):
         keywords = request.GET.get('search')
         print(keywords)
         query = SearchQuery(keywords)
-        vector = SearchVector('name', 'region', 'producer')
-        roasts = roasts.annotate(search=vector).filter(search=query)
-        roasts = roasts.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+        #vector = SearchVector('name', 'region', 'producer')
+        search_vector = SearchVector("name", weight="A")+SearchVector("process", weight="A")+SearchVector("region", weight="C")+SearchVector("producer", weight="B")
+        #roasts = roasts.annotate(search=vector).filter(search=query)
+        #roasts = roasts.annotate(rank=SearchRank(vector, query)).order_by('-rank')
+        rank = SearchRank(search_vector, query, weights=[0.4,0.6,0.8,1.0])
+        roasts = Roast.objects.annotate(rank=rank).filter(rank__gte=0.4).order_by("-rank")
     #return qs
     return render(request, 'roast/roast_landing.html', {'roasts': roasts, 'featured_roasts':featured_roasts})
 
@@ -50,16 +53,3 @@ def roast_add (request):
     else:
         form = forms.AddRoast()
     return render(request, 'roast/roast_add.html', {'form': form})
-
-
-
-
-class SearchResultsList(ListView):
-    model = Roast
-    context_object_name = 'search_results'
-    template_name = 'roast/roast_search.html'
-    paginate_by = 10
-
-    def get_queryset(self):
-
-        return Roast.objects.annotate(search=SearchVector("name", "region", "producer")).filter(search=query)

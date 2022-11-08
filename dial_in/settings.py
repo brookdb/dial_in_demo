@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'apps.roast.apps.RoastConfig',
     'apps.brew.apps.BrewConfig',
     'star_ratings',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
