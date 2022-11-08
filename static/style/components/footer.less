@@ -2,16 +2,22 @@
   &-wrapper{
     display: flex;
     flex-direction: row;
-    background: @fern;
+    padding: 22.2px 22.2px 55.5px 22.2px;
+    background: @dark-background;
+    color: @light-foreground;
     @media only screen and (max-width: @mobile-min){
       justify-content: space-evenly;
       flex-direction: column;
     }
-    &-inner{
-      flex-direction: column;
-      padding: 40px;
+  }
+  &-appeal{
+    padding-bottom: 44.4px;
+    p,a {
+      font-family: 'Inconsolata';
+      font-size: 33.3px;
     }
   }
+
   &-bio{
     display: flex;
     @media only screen and (max-width: @mobile-min){
@@ -56,18 +62,41 @@
     }
   }
   &-social{
-    padding: 40px 0 2px 0;
-    margin-top: 10px;
-    border-top: @tangerine-sunset solid;
-    display: flex;
-    justify-content: space-between;
-    a {
-      color: @lavender;
-      &:hover{
-        color: @tangerine-sunset;
-        background: @lavender;
-        text-decoration: underline;
+    &-wrapper{
+      display: flex;
+      justify-content: space-evenly;
+      padding: 5.55px 5.55px 33.3px 5.55px;
+
+      a {
+        .icon {
+          fill: @melon;
+          width: 33px;
+          height: 33px;
+          &:hover, &:active{
+            fill: @light-foreground;
+          }
+        }
       }
     }
+  }
+  &-legal{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 33.3px 0px;
+    a {
+      padding: 0px 11.1px;
+      &:first-of-type {
+        border-right: solid 2px;
+      }
+    }
+  }
+  &-credits{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding: 11.1px 0px 44.4px 0px;
+    border-top: solid 0.4px @melon;
   }
 }

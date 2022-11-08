@@ -1,6 +1,7 @@
 /*imports*/
 @import 'constants.less';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
 @import 'fonts.less';
 @import 'colors.less';
 @import 'components/forms.less';
@@ -42,8 +43,9 @@ a{
 	text-decoration: none !important;
 	color: @melon !important;
 	font-family: 'Roboto Mono', monospace;
-	&:hover {
-		text-decoration: underline;
+	&:hover, &:active {
+		color: @light-foreground !important;
+		text-decoration: underline !important;
 	}
 }
 h2{
