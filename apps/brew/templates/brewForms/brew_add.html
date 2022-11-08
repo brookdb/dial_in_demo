@@ -1,0 +1,69 @@
+<form class="brew-add-form customForm" action="" method="post" name="new_recipie">
+  {% csrf_token %}
+  <div class="brew-field-group-1">
+    <div class="brew-field-wrapper">
+      {{form.dose.label}}
+      {{form.dose}}
+      {{form.dose.errors}}
+    </div>
+    <div class="brew-field-wrapper">
+      {{form.grind.label}}
+      {{form.grind}}
+      {{form.grind.errors}}
+    </div>
+    <div class="brew-field-wrapper">
+      {{form.output.label}}
+      {{form.output}}
+      {{form.output.errors}}
+    </div>
+  </div>
+  <div class="brew-field-group-2">
+    <div class="brew-field-wrapper">
+      {{form.flavor_score.label}}: <span id="flavor_score_value"></span>
+      {{form.flavor_score}}
+      {{form.flavor_score.errors}}
+    </div>
+    <div class="brew-field-wrapper">
+      {{form.TSD_score.label}}: <span id="TSD_score_value"></span>
+      {{form.TSD_score}}
+      {{form.TSD_score.errors}}
+    </div>
+  </div>
+  <script>
+      var slider1 = document.getElementById("flavor-score-range");
+      var slider2 = document.getElementById("TSD-score-range")
+      var output1 = document.getElementById("flavor_score_value");
+      var output2 = document.getElementById("TSD_score_value");
+
+      output1.innerHTML = slider1.value;
+      output2.innerHTML = slider2.value;
+      let r = 255;
+
+      slider1.oninput = function() {
+        let x = this.value;
+        g = 180 - (7.5*x);
+        b = 180 + (7.4*x);
+        let color = "rgb("+r+","+g+","+b+")";
+        console.log(color);
+        slider1.style.background = color
+        output1.innerHTML = x;
+      }
+      slider2.oninput = function() {
+        let x = this.value;
+        g = 180 + (6.4*x);
+        b = 180 + (6.4*x);
+        let color = "rgb("+r+","+g+","+b+")";
+        console.log(color);
+        slider2.style.background = color
+        output2.innerHTML = x;
+      }
+  </script>
+  <div class="brew-field-group-3">
+    <div class="brew-field-wrapper">
+      {{form.comment.label}}
+      {{form.comment}}
+      {{form.comment.errors}}
+    </div>
+  </div>
+  <input class="customForm-button" type="submit" value="Submit">
+</form>

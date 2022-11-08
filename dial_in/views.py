@@ -6,4 +6,4 @@ from apps.roast.models import Roast
 def landing(request):
     #return HttpResponse("landing")
     roasts = Roast.objects.all()
-    return render(request, 'pages/landing.html', {'roasts': roasts})
+    return render(request, 'core/pages/landing.html', {'roasts': roasts})

@@ -12,8 +12,11 @@
 @import 'components/footer.less';
 @import 'components/search_bar.less';
 @import 'components/brew.less';
+@import 'components/tile.less';
+
 @import 'effects/gradients.less';
 @import 'effects/pixlated_border.less';
+
 
 /* containers*/
 body,html{
@@ -37,19 +40,42 @@ p{
 }
 a{
 	text-decoration: none !important;
-	color: @tangerine-sunset !important;
+	color: @melon !important;
 	font-family: 'Roboto Mono', monospace;
 	&:hover {
 		text-decoration: underline;
 	}
 }
 h2{
-	color: @tangerine-sunset;
+	color: @melon;
 	font-family: 'Roboto Mono', monospace;
 }
 .space-vertical{
 	width: 100%;
 	height: 80px;
+}
+button{
+	border: none;
+	background: none;
+}
+img{
+	max-width: 100%;
+}
+.customForm-button {
+  font-family: 'DispoDroid', monospace;
+  font-size: 1.7em;
+  max-width: 200px;
+  color: @melon;
+  cursor: pointer;
+	border: solid 1.1px;
+	background: none;
+	padding: 5px 12px;
+	&:hover,
+	&:active {
+	  text-decoration: underline;
+		background: @melon;
+		color: @uber-black
+	}
 }
 
 #mainView{

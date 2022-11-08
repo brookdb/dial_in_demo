@@ -1,0 +1,20 @@
+<div class="accordion" id="myAccordion">
+
+  {% for accordian_item in accordian_items %}
+      <div class="accordion-item">
+
+        <h2 class="accordion-header" id="headingOne">
+          <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+            {{ accordian_item.title }}
+          </button>
+        </h2>
+
+        <div id="collapseOne" class="accordion-collapse collapse">
+          <div class="card-body {{ accordian_item.cardClassName }}">
+            {% include accordian_item.content_url %}
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+
+</div>

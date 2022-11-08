@@ -1,0 +1,11 @@
+<form class="deactivate-account-form customForm" action="{% url 'apps.users:deactivate' %}" method="post" name="deactivate_account">
+  {% csrf_token %}
+  <p>Are you sure you want to deactivate your account?</p>
+  <p>
+    <input id="deactivate-account-confirmation" type="checkbox" name="deactivate-account-confirmation" value="True" required>
+    <label for="deactivate-account-confirmation">Yes</label>
+  </p>
+  <p>
+    <input class="customForm-button" type="submit" name="" value="Deactivate">
+  </p>
+</form>

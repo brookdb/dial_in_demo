@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.postgres.search import SearchVector, SearchQuery,SearchRank
 from django.views.generic import ListView
+from datetime import date
 import json
 from django.core import serializers
 #from django.utils.safestring import make_safe
@@ -64,12 +65,21 @@ def brew_add (request):
 
 def brew_details(request, slug):
     brew = Brew.objects.get(slug=slug)
+    is_editable = False
+    view_items = []
     if brew:
         recipies = Recipie.objects.filter(brewID=brew)
     else:
         recipies = []
-
+    if request.user.is_authenticated and request.user == brew.userID and date.today() == brew.brewDate:
+        is_editable = True
+        view_items.append({
+          "title": "Add New Recipie",
+          "content_url": "brewForms/brew_add.html",
+          "cardClassName": "brew-add-form-wrapper"
+        })
     if request.method == 'POST':
+
         if request.POST.get('bestRecipieID'):
             bestrecipie = recipies.get(id=request.POST.get('bestRecipieID'))
             brew.bestRecipieID = bestrecipie
@@ -89,9 +99,16 @@ def brew_details(request, slug):
             #return HttpResponse(form.errors)
 
     form = AddBrewRecipie()
+    view_items.append({
+        "title": "All Recipies",
+        "content_url": "brew/recipie_list.html",
+        "cardClassName": " "
+    })
     context = {
         'brew': brew,
         'recipies': recipies,
         'form': form,
+        'is_editable': is_editable,
+        'view_items':view_items,
     }
     return render(request, 'brew/brew_details.html', context)

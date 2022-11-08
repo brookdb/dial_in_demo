@@ -26,29 +26,12 @@
   <br>
   <br>
   <br>
-
-  <div class="accordion" id="myAccordion">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne">deactivate Account</button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse">
-        <div class="card-body">
-          <form class="deactivate-account-form customForm" action="{% url 'apps.users:deactivate' %}" method="post" name="deactivate_account">
-            {% csrf_token %}
-            <p>Are you sure you want to deactivate your account?</p>
-            <p>
-              <input id="deactivate-account-confirmation" type="checkbox" name="deactivate-account-confirmation" value="True" required>
-              <label for="deactivate-account-confirmation">Yes</label>
-            </p>
-            <p>
-              <input class="customForm-button" type="submit" name="" value="Deactivate">
-            </p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
+  {% accordian_items.append({
+    'title': "Deactivate Account",
+    'content_url': "userForms/deactivate_account.html",
+    'cardClassName': " "
+  })%}
+  {% include 'core/components/accordian.html' with accordian_items=accordian_items %}
 
 </div>
 {% endblock %}

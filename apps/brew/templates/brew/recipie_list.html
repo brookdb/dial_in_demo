@@ -1,0 +1,38 @@
+{% for recipie in recipies %}
+  <div class="recipie-tile">
+    <div class="left">
+      <div class="recipie-tile-top">
+        <div class="left">
+          <p>{{recipie}}</p>
+        </div>
+        <div class="recipie-tile-right">
+          <div class="left">
+            <p>Flavor Score: {{recipie.flavor_score}}</p>
+          </div>
+          <div class="middle">
+            <p>TSD score: {{recipie.TSD_score}}</p>
+          </div>
+
+        </div>
+      </div>
+      <div class="bottom">
+        <p>{{recipie.comment}}</p>
+      </div>
+    </div>
+    <div class="right">
+      <form id="best-recipie" action="" name="best-recipie" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="bestRecipieID" value="{{recipie.id}}">
+        <button type="submit"
+        class="bestrecipie-button
+        {% if recipie.id == brew.bestRecipieID.id %}
+          selected
+        {% endif%}"
+        >
+
+      </button>
+      </form>
+    </div>
+    </div>
+
+{% endfor %}

@@ -1,0 +1,13 @@
+{% extends 'core/components/tile/tile.html' %}
+{% block tile_content %}
+  {% if imgURL %}
+    <div class="tile-cube">
+      <img src="{{ imgURL }}" alt="{{ alt }}">
+    </div>
+  {% else %}
+    <div class="tile-cube">
+      <p>{{ alt }}</p>
+    </div>  
+  {% endif %}
+
+{% endblock %}

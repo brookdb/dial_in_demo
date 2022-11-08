@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.postgres",
+    'apps.core.apps.CoreConfig',
     'apps.users.apps.UsersConfig',
     'apps.roast.apps.RoastConfig',
     'apps.brew.apps.BrewConfig',
@@ -77,9 +78,9 @@ WSGI_APPLICATION = 'dial_in.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DB_NAME'),
-	'USER': env('DB_USER_NAME'),
-	'PASSWORD': env('DB_USER_PW'),
+        'NAME': env('DATABASE_NAME'),
+	    'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
         'HOST' : 'localhost',
         'PORT' : '5432',
     }
@@ -121,9 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+#STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 # Media Files
