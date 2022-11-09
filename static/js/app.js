@@ -16,6 +16,7 @@ function showSlides() {
 
 function toggleMobileMenu(menu) {
     menu.classList.toggle('open');
+    $('nav ul').slideToggle();
 }
 
 function app(){
@@ -23,3 +24,15 @@ function app(){
   toggleMobileMenu();
 }
 app();
+
+(function($) {
+  $(function() {
+
+    //  open and close nav
+    $('#navbar-toggle').click(function() {
+      $('nav ul').slideToggle();
+      console.log("toggle clicked");
+    });
+
+  });
+})(jQuery);

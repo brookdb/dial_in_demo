@@ -55,17 +55,22 @@ header {
       }
     }
     .mobile-menu{
-      display: none;
       position: absolute;
-      top: 50px;
+      top: 0;
       left: 0;
-      height: calc(100vh - 50px);
+      height: calc(100vh - 83px);
       width: 100%;
       margin-top: 0px;
       padding-top: 33px;
       margin-bottom: 0px;
       padding: 33px 0px;
       background: @dark-background;
+      transform: translate(0, -100%);
+      transition: @ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
       li{
         margin-bottom: 33.3px;
       }
@@ -88,10 +93,7 @@ header {
       transform: rotate(45deg) translate(-6px, -8px);
     }
     .mobile-menu {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      transform: translate(0, 50px);
     }
   }
 }
