@@ -1,16 +1,4 @@
 console.log("JS loaded");
-function showOptions() {
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('nav');
-  console.log(nav);
-
-  burger.addEventListener('click', function(){
-        burger.classList.toggle('change');
-        nav.classList.toggle('show-nav');
-        console.log('event triggered');
-    });
-}
-
 var slideIndex = 0;
 
 function showSlides() {
@@ -26,10 +14,12 @@ function showSlides() {
   setTimeout(showSlides, 6450); // Change image every 2 seconds
 }
 
+function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+}
 
 function app(){
-
-  showOptions();
   showSlides();
+  toggleMobileMenu();
 }
 app();

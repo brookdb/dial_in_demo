@@ -1,83 +1,97 @@
 header {
+  padding: 0 20px;
+  background-color: @uber-black;;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  h1{
+    font-weight: bold;
+    font-size: 33.3px;
     display: flex;
-    justify-content: space-between;
-    padding: 0px 20px;
-    background: @uber-black;
-    margin-bottom: 66.6px;
-    h1{
-      a {
-        font-family: 'Extrude';
-        font-size: 1.5em;
-      }
+    align-items: center;
+    a {
+      font-family: 'Extrude';
+      text-decoration: none;
     }
-    .burger{
-      display: inline-block;
-      cursor: pointer;
-    }
-    .wrapper{
-      display: flex;
-			flex-direction: column;
-			justify-content: center;
-			max-width: 200px;
-    }
-    .bar1, .bar2, .bar3 {
-
-      width: 35px;
-      height: 5px;
-      margin: 6px 0;
-			background: @melon;
-			transition: 0.4s;
-		}
-
-		.change .bar1 {
-			-webkit-transform: rotate(-45deg) translate(-9px, 6px);
-			transform: rotate(-45deg) translate(-9px, 6px);
-		}
-
-		.change .bar2 {opacity: 0;}
-
-		.change .bar3 {
-			-webkit-transform: rotate(45deg) translate(-8px, -8px);
-			transform: rotate(45deg) translate(-8px, -8px);
-		}
-}
-nav{
-  display: none;
-  width: 100%;
-  position: fixed;
-  box-shadow: @uber-black -8px 8px 33px 1px;
-  background: @lavender;
-  a{
-    margin: 12px 0 12px 8px;
   }
-  .nav-options{
-    display: flex;
-    flex-direction: column;
-    padding-left: 33px;
-    padding-top: 33px;
-    width: 100%;
-    padding-bottom: 33px;
-  }
-  button{
-    font-family: 'Poppins';
-    color: #0d004d;
-    font-size: 16px;
-    margin: 12px 0px 12px 8px;
-  }
-  .wrapper{
+  ul{
     display: flex;
     justify-content: space-around;
-    width: 66.6%;
-    a:hover{
-      text-decoration: underline;
+    margin: 0;
+    li{
+      padding: 5px;
+      margin-left: 10px;
+      &:hover{
+        transform: scale(1.1);
+        transition: 0.3s;
+      }
     }
   }
-}
+  nav{
+    .wrapper{
+      display: flex;
+      margin-left: 44.4px;
+    }
+    @media only screen and (max-width: @mobile-min) {
+      display: none;
+    }
+  }
+  .hamburger-icon{
+    margin: auto 0;
+    display: none;
+    cursor: pointer;
+    div {
+      width: 35px;
+      height: 3px;
+      background-color: @melon;
+      margin: 6px 0;
+      transition: 0.4s;
+      &.wrapper{
+        width: auto;
+        height: auto;
+        background: none;
+        display: flex;
+        margin-top: 55px;
+      }
+    }
+    .mobile-menu{
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      height: calc(100vh - 50px);
+      width: 100%;
+      margin-top: 0px;
+      padding-top: 33px;
+      margin-bottom: 0px;
+      padding: 33px 0px;
+      background: @dark-background;
+      li{
+        margin-bottom: 33.3px;
+      }
+    }
 
-.show-nav{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  background: @uber-black;
-  margin-top: -66.6px;
+    @media only screen and (max-width: @mobile-min) {
+      display: block;
+    }
+  }
+  .open {
+    .bar1{
+      -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+      transform: rotate(-45deg) translate(-6px, 6px);
+      }
+    .bar2{
+      opacity: 0;
+    }
+    .bar3{
+      -webkit-transform: rotate(45deg) translate(-6px, -8px);
+      transform: rotate(45deg) translate(-6px, -8px);
+    }
+    .mobile-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
 }
