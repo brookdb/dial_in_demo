@@ -1,14 +1,34 @@
 .footer{
   &-wrapper{
     display: flex;
-    flex-direction: row;
+    justify-content: space-evenly;
+    flex-direction: column;
     padding: 22.2px 22.2px 55.5px 22.2px;
     background: @dark-background;
     color: @light-foreground;
-    @media only screen and (max-width: @mobile-min){
-      justify-content: space-evenly;
-      flex-direction: column;
+    align-items: center;
+    .block{
+      display: flex;
     }
+    @media only screen and (max-width: @mobile-min){
+      .block{
+        flex-direction: column;
+      }
+    }
+    @media only screen and (min-width: @desktop-min){
+      .block{
+        width: 969px;
+      }
+      .column{
+        &-three{
+          flex: 44% 0 0;
+        }
+        &-two{
+          flex: 296px 1 1;
+        }
+      }
+    }
+
   }
   &-appeal{
     padding-bottom: 44.4px;
@@ -48,19 +68,6 @@
     }
   }
 
-  &-navigation{
-
-    flex: 35% 0 0;
-    padding: 40px;
-    h2, a{
-      color: @lavender;
-      &:hover{
-        color: @tangerine-sunset;
-        background: @lavender;
-        text-decoration: underline;
-      }
-    }
-  }
   &-social{
     &-wrapper{
       display: flex;
